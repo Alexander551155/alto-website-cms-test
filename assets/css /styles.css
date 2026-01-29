@@ -2,7 +2,7 @@
    ALTO – Premium Hero Layout (Desktop)
    - Gallery big (hero)
    - Big subline pill
-   - Contact pill like before + SMALL inline SVG icons next to text
+   - Contact pill + SMALL inline SVG icons next to text
    ========================= */
 
 :root{
@@ -29,7 +29,6 @@
 
   --radius-tile: 26px;
 
-  /* spacing */
   --space-after-gallery: 62px;
   --space-after-subline: 48px;
   --space-before-contact: 10px;
@@ -51,9 +50,6 @@ body{
   overflow-x: hidden;
 }
 
-/* =========================
-   TOP BAR
-   ========================= */
 .topbar{
   background: linear-gradient(90deg, var(--sage-dark), var(--sage));
   color:#fff;
@@ -64,9 +60,6 @@ body{
   text-transform: uppercase;
 }
 
-/* =========================
-   HEADER
-   ========================= */
 .header{
   background: rgba(255,255,255,.90);
   border-bottom: 1px solid var(--hairline);
@@ -90,9 +83,6 @@ body{
   text-align:center;
 }
 
-/* =========================
-   SHELL + STAGE
-   ========================= */
 .shell{
   max-width: 1900px;
   margin: 0 auto;
@@ -109,9 +99,6 @@ body{
   flex-direction: column;
 }
 
-/* ============================================================
-   GALLERY – BIG HERO ROW
-   ============================================================ */
 .gallery{
   width: min(1680px, calc(100vw - 72px));
   margin: 0 auto;
@@ -130,8 +117,8 @@ body{
   border-radius: var(--radius-tile);
   overflow: hidden;
 
-  border: 1px solid var(--tile-border);
-  background: var(--tile-bg);
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(255,255,255,.18);
   box-shadow: var(--tile-shadow);
 
   display:block;
@@ -160,9 +147,6 @@ body{
   }
 }
 
-/* ============================================================
-   SUBLINE (Interiors...) – big + spaced
-   ============================================================ */
 .subline-between{
   margin: 0 auto var(--space-after-subline);
 }
@@ -176,8 +160,8 @@ body{
   padding: 18px 26px;
   border-radius: 999px;
 
-  background: var(--pill-bg);
-  border: 1px solid var(--pill-border);
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(18,24,38,.10);
   backdrop-filter: blur(14px);
 
   font-family: "Cormorant Garamond", serif;
@@ -193,9 +177,6 @@ body{
   box-shadow: 0 18px 52px rgba(0,0,0,.10);
 }
 
-/* ============================================================
-   CONTACT – pill like before + SMALL inline icons
-   ============================================================ */
 .contact-bar{
   width: min(1680px, calc(100vw - 72px));
   margin: var(--space-before-contact) auto 0;
@@ -234,7 +215,6 @@ body{
   margin-bottom: 8px;
 }
 
-/* inline icon */
 .i{
   display:inline-flex;
   align-items:center;
@@ -263,9 +243,6 @@ body{
   text-underline-offset: 3px;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
 .bottom{
   margin-top: auto;
   display: grid;
@@ -281,7 +258,7 @@ body{
   font-size: 12px;
   line-height: 1.6;
 
-  background: var(--footer-bg);
+  background: rgba(255,255,255,.55);
   backdrop-filter: blur(6px);
   padding: 10px 16px;
   border-radius: 16px;
@@ -296,51 +273,17 @@ body{
   text-decoration: underline;
 }
 
-/* =========================
-   PAGE CARD (Impressum/Datenschutz)
-   ========================= */
 .page-card{
   margin: 10px auto 0;
   width: min(920px, 100%);
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--card-shadow);
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(18,24,38,.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,.10);
   border-radius: 18px;
   backdrop-filter: blur(10px);
   padding: 18px 18px;
 }
 
-.page-card h1{
-  font-family: "Cormorant Garamond", serif;
-  color: var(--sage-dark);
-  margin: 0 0 10px;
-  font-size: 34px;
-  line-height: 1.05;
-}
-
-.page-card h2{
-  margin: 18px 0 8px;
-  font-size: 14px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  color: rgba(18,24,38,.70);
-}
-
-.page-card p, .page-card li{
-  color: rgba(18,24,38,.80);
-  line-height: 1.65;
-  font-size: 13px;
-}
-
-.page-card a{
-  color: var(--sage-dark);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-/* =========================
-   Responsive (later we tune mobile-horizontal)
-   ========================= */
 @media (max-width: 1100px){
   :root{
     --space-after-gallery: 34px;
