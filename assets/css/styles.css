@@ -48,7 +48,8 @@ body{
     linear-gradient(180deg, rgba(240,251,245,0.30), rgba(255,255,255,0.45)),
     url("../../img/BR_5.jpg") center/cover no-repeat fixed;
 
-  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden; 
 }
 
 /* =========================
@@ -407,4 +408,107 @@ body{
 
 @media (max-width: 360px){
   .gallery{ grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   MOBILE PORTRAIT (iPhone SE / 14 etc.)
+   Ziel: 1 Screen, KEIN Scroll
+   - 2x2 Bilder (nur 4 sichtbar)
+   - 5. Bild ausblenden
+   - Subline + Kontakt + Footer passen in 1 Viewport
+   ============================================================ */
+@media (max-width: 480px) and (orientation: portrait){
+
+  /* Kein Scrollen */
+  html, body{ height: 100%; }
+  body{
+    overflow: hidden;
+    background-attachment: scroll; /* iOS-friendly */
+  }
+
+  /* Header kompakter */
+  .topbar{
+    padding: 8px 10px;
+    font-size: 10px;
+    letter-spacing: .22em;
+  }
+
+  .header-inner{ padding: 10px 12px; }
+  .brand{
+    font-size: 26px;
+    line-height: 1.05;
+  }
+
+  /* Overall Spacing kleiner */
+  .shell{ padding: 8px 10px 10px; }
+  .stage{
+    padding-top: 10px;
+    min-height: calc(100svh - 110px); /* Topbar+Header ca. */
+  }
+
+  /* Gallery: 2x2, 5. Bild weg */
+  .gallery{
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .gallery .tile:nth-child(5){ display: none; }
+
+  /* Tile-Höhe: dynamisch, damit alles in 1 Screen passt */
+  .tile{
+    border-radius: 18px;
+    height: clamp(120px, 22svh, 190px);  /* flacher + passt */
+  }
+
+  /* Subline kleiner + mehr Abstand nach unten */
+  .subline-between{
+    margin: 0 auto 14px;
+  }
+  .subline-pill{
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 18px;
+    letter-spacing: .16em;
+    line-height: 1.08;
+  }
+
+  /* Kontakt: volle Breite (elegant), kompakter */
+  .contact-bar{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .contact-pill{
+    width: 100%;
+    border-radius: 22px; /* bleibt edel/pillig */
+    padding: 12px 12px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .contact-pill strong{
+    font-size: 11px;
+    margin-bottom: 6px;
+    letter-spacing: .14em;
+  }
+
+  /* Icons minimal kleiner */
+  .i, .i svg{
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Footer kompakter + bleibt unten */
+  .bottom{
+    margin-top: auto;
+    padding-top: 12px;
+    gap: 8px;
+  }
+  .footer{
+    width: 100%;
+    padding: 9px 10px;
+    font-size: 11px;
+    line-height: 1.35;
+    border-radius: 16px;
+  }
 }
