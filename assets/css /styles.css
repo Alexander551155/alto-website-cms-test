@@ -1,0 +1,410 @@
+/* =========================
+   ALTO – Premium Hero Layout (Desktop)
+   - Gallery big (hero)
+   - Big subline pill
+   - Contact pill like before + SMALL inline SVG icons next to text
+   ========================= */
+
+:root{
+  --sage:#6f8f63;
+  --sage-dark:#5e7d54;
+
+  --ink:#121826;
+  --muted: rgba(18,24,38,.62);
+
+  --hairline: rgba(18,24,38,.12);
+
+  --tile-border: rgba(255,255,255,.55);
+  --tile-bg: rgba(255,255,255,.18);
+  --tile-shadow: 0 26px 90px rgba(0,0,0,.14);
+
+  --pill-bg: rgba(255,255,255,.82);
+  --pill-border: rgba(18,24,38,.10);
+
+  --footer-bg: rgba(255,255,255,.55);
+
+  --card-bg: rgba(255,255,255,.86);
+  --card-border: rgba(18,24,38,.10);
+  --card-shadow: 0 18px 55px rgba(0,0,0,.10);
+
+  --radius-tile: 26px;
+
+  /* spacing */
+  --space-after-gallery: 62px;
+  --space-after-subline: 48px;
+  --space-before-contact: 10px;
+}
+
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+
+  background:
+    radial-gradient(900px 600px at 50% 0%, rgba(111,143,99,.10), transparent 70%),
+    linear-gradient(180deg, rgba(240,251,245,0.30), rgba(255,255,255,0.45)),
+    url("../../img/BR_5.jpg") center/cover no-repeat fixed;
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   TOP BAR
+   ========================= */
+.topbar{
+  background: linear-gradient(90deg, var(--sage-dark), var(--sage));
+  color:#fff;
+  text-align:center;
+  padding: 10px 14px;
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.header{
+  background: rgba(255,255,255,.90);
+  border-bottom: 1px solid var(--hairline);
+  backdrop-filter: blur(10px);
+}
+
+.header-inner{
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 16px 16px;
+  display:flex;
+  justify-content:center;
+}
+
+.brand{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: var(--sage-dark);
+  font-size: clamp(30px, 3.6vw, 54px);
+  text-align:center;
+}
+
+/* =========================
+   SHELL + STAGE
+   ========================= */
+.shell{
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 14px 18px 28px;
+}
+
+.stage{
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 18px 0 0;
+
+  min-height: calc(100svh - 170px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   GALLERY – BIG HERO ROW
+   ============================================================ */
+.gallery{
+  width: min(1680px, calc(100vw - 72px));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 22px;
+
+  justify-content: center;
+  align-items: stretch;
+
+  margin-bottom: var(--space-after-gallery);
+}
+
+.tile{
+  border-radius: var(--radius-tile);
+  overflow: hidden;
+
+  border: 1px solid var(--tile-border);
+  background: var(--tile-bg);
+  box-shadow: var(--tile-shadow);
+
+  display:block;
+  text-decoration:none;
+  position: relative;
+
+  height: clamp(210px, 32vh, 420px);
+}
+
+.tile img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1);
+  transition: transform .45s ease, filter .45s ease;
+}
+
+@media (hover:hover){
+  .tile:hover img{
+    transform: scale(1.05);
+    filter: saturate(1.06);
+  }
+  .tile:hover{
+    box-shadow: 0 36px 120px rgba(0,0,0,.18);
+  }
+}
+
+/* ============================================================
+   SUBLINE (Interiors...) – big + spaced
+   ============================================================ */
+.subline-between{
+  margin: 0 auto var(--space-after-subline);
+}
+
+.subline-pill{
+  display: block;
+  width: min(1680px, calc(100vw - 72px));
+  margin: 0 auto;
+
+  text-align:center;
+  padding: 18px 26px;
+  border-radius: 999px;
+
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  backdrop-filter: blur(14px);
+
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+
+  font-size: clamp(36px, 3.4vw, 64px);
+  line-height: 1.02;
+
+  color: rgba(18,24,38,.52);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+
+  box-shadow: 0 18px 52px rgba(0,0,0,.10);
+}
+
+/* ============================================================
+   CONTACT – pill like before + SMALL inline icons
+   ============================================================ */
+.contact-bar{
+  width: min(1680px, calc(100vw - 72px));
+  margin: var(--space-before-contact) auto 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.contact-pill{
+  display: block;
+  width: min(980px, 100%);
+  margin: 0 auto;
+
+  text-align:center;
+  padding: 16px 22px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(18,24,38,.10);
+  backdrop-filter: blur(14px);
+
+  color: rgba(18,24,38,.68);
+  font-size: 13px;
+  line-height: 1.55;
+
+  box-shadow: 0 18px 52px rgba(0,0,0,.10);
+}
+
+.contact-pill strong{
+  display:block;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 8px;
+}
+
+/* inline icon */
+.i{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+
+  margin-right: 6px;
+  color: var(--sage-dark);
+  opacity: .92;
+}
+
+.i svg{
+  width: 16px;
+  height: 16px;
+  display:block;
+}
+
+.contact-pill a,
+.contact-pill a:visited{
+  color: var(--sage-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.bottom{
+  margin-top: auto;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding-top: 22px;
+  padding-bottom: 6px;
+}
+
+.footer{
+  text-align:center;
+  color: rgba(18,24,38,.55);
+  font-size: 12px;
+  line-height: 1.6;
+
+  background: var(--footer-bg);
+  backdrop-filter: blur(6px);
+  padding: 10px 16px;
+  border-radius: 16px;
+}
+
+.footer a, .footer a:visited{
+  color: inherit;
+  text-decoration:none;
+}
+.footer a:hover{
+  color: var(--sage-dark);
+  text-decoration: underline;
+}
+
+/* =========================
+   PAGE CARD (Impressum/Datenschutz)
+   ========================= */
+.page-card{
+  margin: 10px auto 0;
+  width: min(920px, 100%);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  padding: 18px 18px;
+}
+
+.page-card h1{
+  font-family: "Cormorant Garamond", serif;
+  color: var(--sage-dark);
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.page-card h2{
+  margin: 18px 0 8px;
+  font-size: 14px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(18,24,38,.70);
+}
+
+.page-card p, .page-card li{
+  color: rgba(18,24,38,.80);
+  line-height: 1.65;
+  font-size: 13px;
+}
+
+.page-card a{
+  color: var(--sage-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* =========================
+   Responsive (later we tune mobile-horizontal)
+   ========================= */
+@media (max-width: 1100px){
+  :root{
+    --space-after-gallery: 34px;
+    --space-after-subline: 26px;
+    --space-before-contact: 10px;
+  }
+
+  .gallery{
+    width: calc(100vw - 32px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .tile{
+    height: clamp(180px, 26vh, 320px);
+    border-radius: 22px;
+  }
+
+  .subline-pill{
+    width: calc(100vw - 32px);
+    font-size: clamp(22px, 3vw, 34px);
+    padding: 14px 16px;
+    letter-spacing: .18em;
+  }
+
+  .contact-bar{
+    width: calc(100vw - 32px);
+  }
+
+  .contact-pill{
+    width: min(880px, 100%);
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 560px){
+  body{ background-attachment: scroll; }
+
+  .gallery{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .tile{
+    height: 180px;
+    border-radius: 18px;
+  }
+
+  .contact-pill{
+    font-size: 12.5px;
+    padding: 14px 14px;
+  }
+
+  .i, .i svg{
+    width: 15px;
+    height: 15px;
+  }
+
+  .brand{
+    font-size: 28px;
+    line-height: 1.05;
+  }
+}
+
+@media (max-width: 360px){
+  .gallery{ grid-template-columns: 1fr; }
+}
